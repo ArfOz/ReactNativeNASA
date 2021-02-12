@@ -2,13 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {SafeAreaView, Text, View, Image, TextInput, Button, Alert} from "react-native";
 import axios from "axios";
 
-const Main = () => {
+const Main = (props) => {
     const [lat, setLat] = useState([]);
     const [lon, setLon] = useState([]);
 
-// const Submit()=>{
-
-// }
+const sendingValue=()=>{ props.navigation.navigate("Select", {lat, lon})};
 
     return (
         <SafeAreaView>
@@ -24,13 +22,13 @@ const Main = () => {
         
         <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            onChangeText={text => setlon(text)}
+            onChangeText={text => setLon(text)}
             value={lon}
             placeholder = "Enter a Longitude of Area"
         />
         <Button
         title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
+        onPress={sendingValue}
       />
         </SafeAreaView>
     )
